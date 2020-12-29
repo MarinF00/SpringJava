@@ -10,7 +10,8 @@ public class Player {
 
     String firstName;
     String familyName;
-    int age;
+   // int age;
+    int number;
     String position;
     @ManyToOne
     Club owner;
@@ -19,16 +20,29 @@ public class Player {
     {
 
     }
-    public Player(String firstName,String familyName, int age, String position)
+    public Player(String firstName,String familyName,int number, String position)
     {
         this.firstName = firstName;
         this.familyName = familyName;
-        this.age = age;
+      //  this.age = age;
+        this.number = number;
         this.position = position;
     }
 
-    public int getAge() {
+   /* public int getAge() {
         return age;
+    }*/
+
+    public int getNumber() {
+        return number;
+    }
+
+    public void setNumber(int number) {
+        this.number = number;
+    }
+
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
     }
 
     public String getFamilyName() {
@@ -39,9 +53,9 @@ public class Player {
         this.familyName = familyName;
     }
 
-    public void setAge(int age) {
+    /*public void setAge(int age) {
         this.age = age;
-    }
+    }*/
 
     public String getFirstName() {
         return firstName;
@@ -69,11 +83,7 @@ public class Player {
 
     @Override
     public String toString() {
-        return
-                 firstName + " " +
-                 familyName + " " +
-                         age + " " +
-                 position;
+        return firstName + " " + familyName + " " + number + " " + position;
     }
 
     @Override

@@ -54,9 +54,9 @@ public class Club {
         this.players = players;
     }
 
-    public void addPlayer(Player player)
+    public void addPlayer(Player player,List<Player> players1)
     {
-        players.add(player);
+        players1.add(player);
     }
 
     @Override

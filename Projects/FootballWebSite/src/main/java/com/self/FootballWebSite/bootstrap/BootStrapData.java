@@ -5,25 +5,32 @@ package com.self.FootballWebSite.bootstrap;
 import com.self.FootballWebSite.model.Club;
 import com.self.FootballWebSite.model.Player;
 import com.self.FootballWebSite.model.Publisher;
-import com.self.FootballWebSite.repositories.ArsenalRepository;
 import com.self.FootballWebSite.repositories.ClubRepository;
-import com.self.FootballWebSite.repositories.ManchesterUnitedRepository;
+import com.self.FootballWebSite.repositories.PlayerRepository;
 import com.self.FootballWebSite.repositories.PublisherRepository;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @Component
 public class BootStrapData implements CommandLineRunner {
 
     ClubRepository clubRepository;
-    ManchesterUnitedRepository manchesterUnitedRepository;
+    PlayerRepository playerRepository;
     PublisherRepository publisherRepository;
 
+   public static List<Player> munPlayers = new ArrayList<>();
+   public static List<Player> arsPlayers = new ArrayList<>();
 
-    public BootStrapData(ClubRepository clubRepository, ManchesterUnitedRepository manchesterUnitedRepository, PublisherRepository publisherRepository,ArsenalRepository arsenalRepository) {
+
+
+    public BootStrapData(ClubRepository clubRepository, PlayerRepository playerRepository, PublisherRepository publisherRepository) {
         this.clubRepository = clubRepository;
-        this.manchesterUnitedRepository = manchesterUnitedRepository;
+        this.playerRepository = playerRepository;
         this.publisherRepository = publisherRepository;
+
     }
 
     @Override
@@ -32,29 +39,80 @@ public class BootStrapData implements CommandLineRunner {
         Publisher publisher = new Publisher("Marin", "Filipov","Bulgaria","Varna");
         Club mun = new Club("Manchester United");
 
-        Player WayneRooney = new Player("Wayne", "Rooney",33,"Forward");
-        Player Harry = new Player("Harry", "Maguire",26,"Central Deffender");
-        Player WanBissaka = new Player("Wan", "Bissaka",24,"Right-Back");
-        Player Rashford = new Player("Marcus", "Rashford",23,"Central Forward");
-        Player Cavani = new Player("Edinson", "Cavani",31,"Central Forward");
-        mun.addPlayer(WayneRooney);
-        mun.addPlayer(Harry);
-        mun.addPlayer(Rashford);
-        mun.addPlayer(WanBissaka);
-        mun.addPlayer(Cavani);
+        Player Denis = new Player("Denis","Bergkamp",10,"Forward");
+        Club ars = new Club("Arsenal");
+        ars.addPlayer(Denis,arsPlayers);
+        playerRepository.save(Denis);
+        clubRepository.save(ars);
+
+        Player DeGea = new Player("David", "DeGea",1,"Goalkeeper");
+        Player Dean = new Player("Dean", "Henderson",26,"Goalkeeper");
+        Player Harry = new Player("Harry", "Maguire",5,"Defender");
+        Player Victor = new Player("Victor", "Lindelof",2,"Defender");
+        Player Eric = new Player("Eric", "Baily",3,"Defender");
+        Player Luke = new Player("Luke", "Shaw",23,"Defender");
+        Player Alex = new Player("Alex", "Telles",27,"Defender");
+        Player Brandon = new Player("Brandon", "Williams",33,"Defender");
+        Player Axel = new Player("Axel", "Tuanzebe",38,"Defender");
+        Player WanBissaka = new Player("Wan", "Bissaka",29,"Defender");
+        Player Bruno = new Player("Bruno", "Fernandes",18,"Midfielder");
+        Player Paul = new Player("Paul", "Pogba",6,"Midfielder");
+        Player Juan = new Player("Juan", "Mata",8,"Midfielder");
+        Player Nemanja = new Player("Nemanja", "Matic",31,"Midfielder");
+        Player Fred = new Player("Fred","TheRed",17,"Midfielder");
+        Player Scott = new Player("Scott","McTominay",39,"Midfielder");
+        Player Donny = new Player("Donny","VanDeBeek",38,"Midfielder");
+        Player Rashford = new Player("Marcus", "Rashford",10,"Forward");
+        Player Martial = new Player("Anthony", "Martial",9,"Forward");
+        Player Mason = new Player("Mason", "Greenwood",11,"Forward");
+        Player Cavani = new Player("Edinson", "Cavani",7,"Forward");
+        mun.addPlayer(DeGea,munPlayers);
+        mun.addPlayer(Dean,munPlayers);
+        mun.addPlayer(Victor,munPlayers);
+        mun.addPlayer(Eric,munPlayers);
+        mun.addPlayer(Harry,munPlayers);
+        mun.addPlayer(Luke,munPlayers);
+        mun.addPlayer(WanBissaka,munPlayers);
+        mun.addPlayer(Alex,munPlayers);
+        mun.addPlayer(Axel,munPlayers);
+        mun.addPlayer(Brandon,munPlayers);
+        mun.addPlayer(Bruno,munPlayers);
+        mun.addPlayer(Paul,munPlayers);
+        mun.addPlayer(Juan,munPlayers);
+        mun.addPlayer(Nemanja,munPlayers);
+        mun.addPlayer(Donny,munPlayers);
+        mun.addPlayer(Fred,munPlayers);
+        mun.addPlayer(Scott,munPlayers);
+        mun.addPlayer(Cavani,munPlayers);
+        mun.addPlayer(Martial,munPlayers);
+        mun.addPlayer(Rashford,munPlayers);
+        mun.addPlayer(Mason,munPlayers);
+
 
         publisherRepository.save(publisher);
 
-        manchesterUnitedRepository.save(WayneRooney);
-        manchesterUnitedRepository.save(Harry);
-        manchesterUnitedRepository.save(Rashford);
-        manchesterUnitedRepository.save(Cavani);
-        manchesterUnitedRepository.save(WanBissaka);
+        playerRepository.save(DeGea);
+        playerRepository.save(Dean);
+        playerRepository.save(Victor);
+        playerRepository.save(Eric);
+        playerRepository.save(Harry);
+        playerRepository.save(Luke);
+        playerRepository.save(WanBissaka);
+        playerRepository.save(Alex);
+        playerRepository.save(Brandon);
+        playerRepository.save(Axel);
+        playerRepository.save(Rashford);
+        playerRepository.save(Cavani);
+
 
         clubRepository.save(mun);
 
         System.out.println(publisher);
-        System.out.println(mun);
+        ars.setPlayers(arsPlayers);
+        mun.setPlayers(munPlayers);
+        System.out.println(ars.getPlayers());
+        System.out.println(playerRepository.findAll());
+
 
     }
 }
