@@ -20,4 +20,5 @@ public class ManchesterUnitedController {
     model.addAttribute("players", BootStrapData.munPlayers);
     return "ManchesterUnited";
     }
+   
 }

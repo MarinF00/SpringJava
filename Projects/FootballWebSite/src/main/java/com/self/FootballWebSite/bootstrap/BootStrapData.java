@@ -107,11 +107,10 @@ public class BootStrapData implements CommandLineRunner {
 
         clubRepository.save(mun);
 
-        System.out.println(publisher);
+
         ars.setPlayers(arsPlayers);
         mun.setPlayers(munPlayers);
-        System.out.println(ars.getPlayers());
-        System.out.println(playerRepository.findAll());
+
 
 
     }
