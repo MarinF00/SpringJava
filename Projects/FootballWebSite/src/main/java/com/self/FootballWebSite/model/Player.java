@@ -2,7 +2,7 @@ package com.self.FootballWebSite.model;
 
 import javax.persistence.*;
 @Entity
-//@Table(name = "player")
+@Table(name = "player")
 public class Player {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)

@@ -42,8 +42,7 @@ public class BootStrapData implements CommandLineRunner {
         Player Denis = new Player("Denis","Bergkamp",10,"Forward");
         Club ars = new Club("Arsenal");
         ars.addPlayer(Denis,arsPlayers);
-        playerRepository.save(Denis);
-        clubRepository.save(ars);
+
 
         Player DeGea = new Player("David", "DeGea",1,"Goalkeeper");
         Player Dean = new Player("Dean", "Henderson",26,"Goalkeeper");
@@ -66,6 +65,7 @@ public class BootStrapData implements CommandLineRunner {
         Player Martial = new Player("Anthony", "Martial",9,"Forward");
         Player Mason = new Player("Mason", "Greenwood",11,"Forward");
         Player Cavani = new Player("Edinson", "Cavani",7,"Forward");
+        Player Deans = new Player("proba", "greshka",133,"Striker");
         mun.addPlayer(DeGea,munPlayers);
         mun.addPlayer(Dean,munPlayers);
         mun.addPlayer(Victor,munPlayers);
@@ -87,26 +87,7 @@ public class BootStrapData implements CommandLineRunner {
         mun.addPlayer(Martial,munPlayers);
         mun.addPlayer(Rashford,munPlayers);
         mun.addPlayer(Mason,munPlayers);
-
-
-        publisherRepository.save(publisher);
-
-        playerRepository.save(DeGea);
-        playerRepository.save(Dean);
-        playerRepository.save(Victor);
-        playerRepository.save(Eric);
-        playerRepository.save(Harry);
-        playerRepository.save(Luke);
-        playerRepository.save(WanBissaka);
-        playerRepository.save(Alex);
-        playerRepository.save(Brandon);
-        playerRepository.save(Axel);
-        playerRepository.save(Rashford);
-        playerRepository.save(Cavani);
-
-
-        clubRepository.save(mun);
-
+        mun.addPlayer(Deans,munPlayers);
 
         ars.setPlayers(arsPlayers);
         mun.setPlayers(munPlayers);
