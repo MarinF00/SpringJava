@@ -23,6 +23,7 @@ public class BootStrapData implements CommandLineRunner {
 
    public static List<Player> munPlayers = new ArrayList<>();
    public static List<Player> arsPlayers = new ArrayList<>();
+   public static List<Club> clubs = new ArrayList<>();
 
 
 
@@ -36,19 +37,19 @@ public class BootStrapData implements CommandLineRunner {
     @Override
     public void run(String... args) throws Exception {
 
-        Publisher publisher = new Publisher("Marin", "Filipov","Bulgaria","Varna");
+      Publisher publisher = new Publisher("Marin", "Filipov","Bulgaria","Varna");
         Club mun = new Club("Manchester United");
 
-        Player Denis = new Player("Denis","Bergkamp",10,"Forward");
+       Player Denis = new Player("Denis","Bergkamp",10,"Forward");
         Club ars = new Club("Arsenal");
         ars.addPlayer(Denis,arsPlayers);
 
 
-        Player DeGea = new Player("David", "DeGea",1,"Goalkeeper");
+       Player DeGea = new Player("David", "DeGea",1,"Goalkeeper");
         Player Dean = new Player("Dean", "Henderson",26,"Goalkeeper");
         Player Harry = new Player("Harry", "Maguire",5,"Defender");
         Player Victor = new Player("Victor", "Lindelof",2,"Defender");
-        Player Eric = new Player("Eric", "Baily",3,"Defender");
+
         Player Luke = new Player("Luke", "Shaw",23,"Defender");
         Player Alex = new Player("Alex", "Telles",27,"Defender");
         Player Brandon = new Player("Brandon", "Williams",33,"Defender");
@@ -66,6 +67,8 @@ public class BootStrapData implements CommandLineRunner {
         Player Mason = new Player("Mason", "Greenwood",11,"Forward");
         Player Cavani = new Player("Edinson", "Cavani",7,"Forward");
         Player Deans = new Player("proba", "greshka",133,"Striker");
+        Player Eric = new Player("Eric", "Baily",3,"Defender");
+
         mun.addPlayer(DeGea,munPlayers);
         mun.addPlayer(Dean,munPlayers);
         mun.addPlayer(Victor,munPlayers);
@@ -89,6 +92,10 @@ public class BootStrapData implements CommandLineRunner {
         mun.addPlayer(Mason,munPlayers);
         mun.addPlayer(Deans,munPlayers);
 
+
+
+        clubs.add(mun);
+        clubs.add(ars);
         ars.setPlayers(arsPlayers);
         mun.setPlayers(munPlayers);
 

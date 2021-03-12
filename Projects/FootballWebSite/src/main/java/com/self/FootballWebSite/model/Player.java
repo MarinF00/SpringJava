@@ -57,6 +57,10 @@ public class Player {
         this.age = age;
     }*/
 
+    public Long getId() {
+        return id;
+    }
+
     public String getFirstName() {
         return firstName;
     }

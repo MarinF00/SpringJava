@@ -16,7 +16,7 @@ public class Club {
 
     String name;
 
-    @OneToMany
+    @OneToMany (cascade = CascadeType.ALL)
     @JoinColumn(name = "player_name")
     List<Player> players = new ArrayList<>();
 
@@ -54,17 +54,17 @@ public class Club {
         this.players = players;
     }
 
-    public void addPlayer(Player player,List<Player> players1)
+    public void addPlayer(Player player,List<Player> players)
     {
-        players1.add(player);
+        players.add(player);
     }
 
     @Override
     public String toString() {
+
         return "Club{" +
                 "id=" + id +
-                ", name='" + name + '\'' +
-                ", players=" + players +
+                ", name='" + name +
                 '}';
     }
 
