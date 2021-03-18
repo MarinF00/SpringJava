@@ -5,14 +5,17 @@ package com.self.FootballWebSite.bootstrap;
 import com.self.FootballWebSite.model.Club;
 import com.self.FootballWebSite.model.Player;
 import com.self.FootballWebSite.model.Publisher;
+import com.self.FootballWebSite.model.UserDto;
 import com.self.FootballWebSite.repositories.ClubRepository;
 import com.self.FootballWebSite.repositories.PlayerRepository;
 import com.self.FootballWebSite.repositories.PublisherRepository;
+import com.self.FootballWebSite.repositories.UserRepository;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
 
 @Component
 public class BootStrapData implements CommandLineRunner {
@@ -20,6 +23,7 @@ public class BootStrapData implements CommandLineRunner {
     ClubRepository clubRepository;
     PlayerRepository playerRepository;
     PublisherRepository publisherRepository;
+    UserRepository userRepository;
 
    public static List<Player> munPlayers = new ArrayList<>();
    public static List<Player> arsPlayers = new ArrayList<>();
@@ -27,10 +31,11 @@ public class BootStrapData implements CommandLineRunner {
 
 
 
-    public BootStrapData(ClubRepository clubRepository, PlayerRepository playerRepository, PublisherRepository publisherRepository) {
+    public BootStrapData(ClubRepository clubRepository, PlayerRepository playerRepository, PublisherRepository publisherRepository, UserRepository userRepository) {
         this.clubRepository = clubRepository;
         this.playerRepository = playerRepository;
         this.publisherRepository = publisherRepository;
+        this.userRepository = userRepository;
 
     }
 
@@ -99,8 +104,12 @@ public class BootStrapData implements CommandLineRunner {
         ars.setPlayers(arsPlayers);
         mun.setPlayers(munPlayers);
 
-
-
+     UserDto userDto3 = new UserDto("gggg");
+     userDto3.setPassword("12345");
+     userDto3.setEmail("kpkdsdsp23k3p@abv.bg");
+     userDto3.setActive(true);
+     userDto3.setRoles("ROLE_USER");
+     userRepository.save(userDto3);
     }
 }
 
