@@ -1,5 +1,8 @@
 package com.self.FootballWebSite.model;
 
+import com.self.FootballWebSite.repositories.ClubRepository;
+import com.self.FootballWebSite.repositories.PlayerRepository;
+
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.HashSet;
@@ -16,6 +19,7 @@ public class Club {
 
     String name;
 
+
     @OneToMany (cascade = CascadeType.ALL)
     @JoinColumn(name = "player_name")
     List<Player> players = new ArrayList<>();
@@ -27,7 +31,9 @@ public class Club {
 
     public Club(String name)
     {
+
         this.name = name;
+
     }
 
     public Long getId() {

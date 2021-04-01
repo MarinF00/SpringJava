@@ -104,6 +104,7 @@ public class BootStrapData implements CommandLineRunner {
         ars.setPlayers(arsPlayers);
         mun.setPlayers(munPlayers);
 
+
      UserDto userDto3 = new UserDto("gggg");
      userDto3.setPassword("12345");
      userDto3.setEmail("kpkdsdsp23k3p@abv.bg");
