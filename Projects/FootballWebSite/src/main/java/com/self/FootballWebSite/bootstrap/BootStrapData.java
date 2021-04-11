@@ -105,12 +105,12 @@ public class BootStrapData implements CommandLineRunner {
         mun.setPlayers(munPlayers);
 
 
-     UserDto userDto3 = new UserDto("gggg");
+     /*UserDto userDto3 = new UserDto("gggg");
      userDto3.setPassword("12345");
      userDto3.setEmail("kpkdsdsp23k3p@abv.bg");
      userDto3.setActive(true);
      userDto3.setRoles("ROLE_USER");
-     userRepository.save(userDto3);
+     userRepository.save(userDto3);*/
     }
 }
 
