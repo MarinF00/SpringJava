@@ -30,5 +30,13 @@ public class ManchesterUnitedController {
         model.addAttribute("players", hello.getPlayers());
     return "ManchesterUnited";
     }
+    @RequestMapping(value = "/Manchester United")
+    public String gettPlayers(Model model)
+    {
+        long id = 581;
+        Club hello = clubRepository.findById(id).orElse(null);
+        model.addAttribute("players", hello.getPlayers());
+        return "ManchesterUnited";
+    }
 
 }

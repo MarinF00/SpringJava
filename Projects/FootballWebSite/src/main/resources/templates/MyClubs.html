@@ -35,19 +35,20 @@ background-color: darkslategrey">My Clubs</h1>
 
     </ul>
 </nav>
+<br>
 <container style="font-size: 24px; font-family: Arial"> List of clubs you can check on my site!<br>
+    <br>
 <table class="table table-dark">
     <thead>
     <tr>
-        <th scope="col">FirstName</th>
-        <th scope="col">FamilyName</th>
-        <th scope="col">Number</th>
-        <th scope="col">Position</th>
+        <th scope="col">ClubName</th>
+
+
     </tr>
     </thead>
     <tbody>
-    <tr  th:each="club : ${clubs}">
-        <td th:text="${club.name}">hello</td>
+    <tr    th:each="club : ${clubs}">
+        <td> <a th:href="${club.name}" th:text="${club.name}">hello</a></td>
     </tr>
     </tbody>
 </table>
