@@ -3,15 +3,18 @@ package com.self.FootballWebSite.controller;
 import com.self.FootballWebSite.model.Club;
 import com.self.FootballWebSite.repositories.ClubRepository;
 import com.self.FootballWebSite.service.ClubNotFoundException;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @RestController
-public class ClubsController {
+public class ClubsRestController {
+
+    @Autowired
     ClubRepository clubRepository;
-    public ClubsController(ClubRepository clubRepository){this.clubRepository = clubRepository;}
+    public ClubsRestController(ClubRepository clubRepository){this.clubRepository = clubRepository;}
 
 
     @GetMapping("/clubs")
