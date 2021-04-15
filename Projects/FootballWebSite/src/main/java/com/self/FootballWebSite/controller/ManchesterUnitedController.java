@@ -7,9 +7,7 @@ import com.self.FootballWebSite.repositories.ClubRepository;
 import com.self.FootballWebSite.repositories.PlayerRepository;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 
 @Controller
 public class ManchesterUnitedController {
@@ -20,6 +18,10 @@ public class ManchesterUnitedController {
     {
         this.playerRepository = playerRepository;
         this.clubRepository = clubRepository;
+    }
+    @PostMapping("/employees")
+    Club newClub(@RequestBody Club newClub) {
+        return clubRepository.save(newClub);
     }
 
     @RequestMapping(value = "/ManchesterUnited")
