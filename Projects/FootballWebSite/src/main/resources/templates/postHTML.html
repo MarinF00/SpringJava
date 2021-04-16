@@ -2,6 +2,7 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:form="http://www.w3.org/1999/xhtml">
 <head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
     <meta charset="UTF-8">
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
@@ -9,9 +10,9 @@
     <title>Document</title>
 </head>
 <body>
-
+<header><th:block th:include="~{navbar}"/></header>
 <form:form method="POST"
-           action="/addClub" th:modelAttribute="club">
+           th:action="@{/addClub}" th:modelAttribute="club">
     <table>
         <tr>
             <td><form:label path="name">Name</form:label></td>

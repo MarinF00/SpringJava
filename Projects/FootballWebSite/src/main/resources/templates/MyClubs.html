@@ -11,30 +11,7 @@
     text-align: center;
 margin-bottom: 10px;
 background-color: darkslategrey">My Clubs</h1>
-<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
-    <ul class="navbar-nav">
-        <li class="nav-item active">
-            <a class="nav-link" href="Home.html">Home</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="/MyClubs">Clubs</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="/add">Add</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="/delete">Delete</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="/login">Sign in</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="/register">Register</a>
-        </li>
-
-
-    </ul>
-</nav>
+<th:block th:include="~{navbar}"/>
 <br>
 <container style="font-size: 24px; font-family: Arial"> List of clubs you can check on my site!<br>
     <br>
