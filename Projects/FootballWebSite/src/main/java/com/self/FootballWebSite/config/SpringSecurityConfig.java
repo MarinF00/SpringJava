@@ -37,14 +37,20 @@ public class SpringSecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity httpSecurity) throws Exception {
                 httpSecurity.authorizeRequests().antMatchers("/").permitAll().and()
                 .authorizeRequests().antMatchers("/console/*").permitAll();
-                httpSecurity.authorizeRequests().antMatchers("/admin").hasRole("ADMIN")
-                        .antMatchers("/user").hasRole("USER").and()
-                        .authorizeRequests().antMatchers("/players/post").permitAll().and()
+
+
+                        httpSecurity.authorizeRequests().antMatchers("/ManchesterUnited").hasAnyRole().and()
+                        .authorizeRequests().antMatchers("/Arsenal").permitAll().and()
+                        .authorizeRequests().antMatchers("/MyClubs").permitAll().and()
+                        .authorizeRequests().antMatchers("/home").permitAll().and()
+                                .authorizeRequests().antMatchers("/index").permitAll().and()
+                        .authorizeRequests().antMatchers("/registration").permitAll().and()
                         .authorizeRequests().antMatchers("/addClub").permitAll().and()
+                        .authorizeRequests().antMatchers("/players/post").permitAll().and()
                         .authorizeRequests().antMatchers("/clubs/post").permitAll().and()
                         .authorizeRequests().antMatchers("/add").hasRole("ADMIN").and()
-                        .authorizeRequests().antMatchers("/registration").permitAll().and()
                         .authorizeRequests().antMatchers("/delete").hasRole("ADMIN");
+
                 httpSecurity.csrf().disable();
                 httpSecurity.headers().frameOptions().disable()
                 .and()

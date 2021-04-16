@@ -1,22 +1,18 @@
 package com.self.FootballWebSite.controller;
 
-import com.self.FootballWebSite.model.Club;
-import com.self.FootballWebSite.model.Player;
 import com.self.FootballWebSite.model.UserDto;
 import com.self.FootballWebSite.repositories.UserRepository;
-import org.apache.catalina.User;
+import org.h2.engine.Mode;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.context.request.WebRequest;
-
+import org.springframework.web.servlet.ModelAndView;
 
 @Controller
-public class RegistrationController {
+public class LoginRegisterController {
     UserRepository userRepository;
-    RegistrationController(UserRepository userRepository)
+    LoginRegisterController(UserRepository userRepository)
     {
         this.userRepository = userRepository;
     }
@@ -28,9 +24,13 @@ public class RegistrationController {
         userRepository.save(user);
     }
     @GetMapping("/register")
-    public String register()
+    public ModelAndView register()
     {
-        return "register";
+        return new ModelAndView("register");
     }
 
+    @GetMapping("/login")
+    public ModelAndView login() {
+        return new ModelAndView("login");
+    }
 }
