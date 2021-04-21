@@ -24,7 +24,7 @@ public class UserDto {
     @NotNull
     @NotEmpty
     private String email;
-    boolean active;
+
     String roles;
 public UserDto()
 {
@@ -44,18 +44,11 @@ public UserDto()
     public String getUsername() {
         return username;
     }
-    public boolean isActive()
-    {
-        return active;
-    }
 
     public void setUsername(String username) {
         this.username = username;
     }
 
-    public void setActive(boolean active) {
-        this.active = active;
-    }
 
     public void setRoles(String roles) {
         this.roles = roles;
