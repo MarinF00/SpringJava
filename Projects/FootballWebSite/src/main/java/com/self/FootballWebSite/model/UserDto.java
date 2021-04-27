@@ -6,15 +6,17 @@ import javax.persistence.*;
 import javax.validation.constraints.NotEmpty;
 
 @Entity
-@Table(name = "Users")
+@Table(name = "myUsers")
 public class UserDto {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     Long id;
 
+
     @NotNull
     @NotEmpty
     private String username;
+
 
     @NotNull
     @NotEmpty
@@ -24,6 +26,7 @@ public class UserDto {
     @NotNull
     @NotEmpty
     private String email;
+
 
     String roles;
 public UserDto()

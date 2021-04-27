@@ -7,10 +7,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.ModelAndView;
 
 import javax.validation.Valid;
 
@@ -29,16 +27,24 @@ public class ClubController {
     model.addAttribute("clubs", clubRepository.findAll());
     return "MyClubs";
     }
+    @RequestMapping("/MyClubs/{id}")
+    public ModelAndView getClub(@PathVariable Long id, Model model)
+    {
+        ModelAndView modelAndView = new ModelAndView();
 
-    @RequestMapping(value = "/addClub",method = RequestMethod.POST)
-    @ResponseBody
-    public String submit(@Valid @ModelAttribute("club") Club club,
-                         BindingResult result, ModelMap model) {
-        if (result.hasErrors()) {
-            return "error";
+        if(id == 581)
+        {
+            Club hello = clubRepository.findById(id).orElse(null);
+            model.addAttribute("players", hello.getPlayers());
+            modelAndView.setViewName("ManchesterUnited");
         }
-        model.addAttribute("name", club.getName());
-        model.addAttribute("id", club.getId());
-        return "MyClubs";
+       else if(id == 579)
+        {
+            Club hello = clubRepository.findById(id).orElse(null);
+            model.addAttribute("players", hello.getPlayers());
+            modelAndView.setViewName("Arsenal");
+        }
+       return modelAndView;
     }
+
 }
