@@ -7,10 +7,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 
@@ -30,15 +27,13 @@ public class ClubController {
     return "MyClubs";
     }
 
-    @RequestMapping(value = "/addClub",method = RequestMethod.POST)
-    @ResponseBody
-    public String submit(@Valid @ModelAttribute("club") Club club,
-                         BindingResult result, ModelMap model) {
-        if (result.hasErrors()) {
-            return "error";
-        }
-        model.addAttribute("name", club.getName());
-        model.addAttribute("id", club.getId());
-        return "MyClubs";
-    }
+@RequestMapping("club/{id}")
+    public String getClub(@PathVariable Long id,Model model)
+{
+    Club club = clubRepository.findById(id).orElse(null);
+    model.addAttribute("club_name", club.getName());
+    model.addAttribute("club_desc",club.getDescription());
+    model.addAttribute("players",club.getPlayers());
+    return "club";
+}
 }

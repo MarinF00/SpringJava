@@ -27,7 +27,7 @@ background-color: #343a40">My Clubs</h1>
     </thead>
     <tbody>
     <tr    th:each="club : ${clubs}">
-        <td> <a th:href="${club.name}" th:text="${club.name}">hello</a></td>
+        <td> <a th:href="@{club/{id}(id=${club.id})}" th:text="${club.name}">hello</a></td>
         <td th:text="${club.description}">hello</td>
     </tr>
     </tbody>

@@ -69,6 +69,14 @@ public class Club {
         players.add(player);
     }
 
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
     @Override
     public String toString() {
 

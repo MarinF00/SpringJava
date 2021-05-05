@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <title>Title</title>
+</head>
+<body>
+<header>
+    <th:block th:include="~{navbar}"/>
+    <br>
+    <h1 th:text="${club_name}"></h1>
+</header>
+<p th:text="${club_desc}">hello</p>
+<b style="font-size: 40px;">Current Squad</b>
+<br>
+<br>
+<br>
+<br>
+<table class="table table-dark">
+    <thead>
+    <tr>
+        <th scope="col">FirstName</th>
+        <th scope="col">FamilyName</th>
+        <th scope="col">Number</th>
+        <th scope="col">Position</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr  th:each="player : ${players}">
+        <td th:text="${player.firstName}">hello</td>
+        <td th:text="${player.familyName}">world</td>
+        <td th:text="${player.number}">25</td>
+        <td th:text="${player.position}">right-wing</td>
+    </tr>
+    </tbody>
+</table>
+<footer style="text-align: center"><b>Basic website created with SpringBoot by Marin Filipov</b></footer>
+</body>
+</html>
+<style>
+    body {
+        color:white;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-size: 100% 100%;
+        background-image: url("http://excelpro.soccer/wp-content/uploads/2020/09/Epic-Soccer-Training-Review-29.jpg")
+    }
+</style>
