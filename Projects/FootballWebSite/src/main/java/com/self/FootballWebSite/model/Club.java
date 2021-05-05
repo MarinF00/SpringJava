@@ -2,6 +2,7 @@ package com.self.FootballWebSite.model;
 
 import com.self.FootballWebSite.repositories.ClubRepository;
 import com.self.FootballWebSite.repositories.PlayerRepository;
+import org.hibernate.annotations.Type;
 
 import javax.persistence.*;
 import java.util.ArrayList;
@@ -9,15 +10,18 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 @Entity
-@Table(name = "club")
+@Table(name = "m_club")
 public class Club {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     Long id;
 
 
-
+    @Column(name = "name")
     String name;
+
+    @Column(name = "description")
+    String description;
 
 
     @OneToMany (cascade = CascadeType.ALL)

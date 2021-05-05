@@ -13,12 +13,14 @@ margin-bottom: 10px;
 background-color: #343a40">My Clubs</h1>
 <th:block th:include="~{navbar}"/>
 <br>
+<a class="border" th:href="@{/register/club}">Create a club</a>
 <container style="font-size: 24px; font-family: Arial"> List of clubs you can check on my site!</container><br>
     <br>
 <table class="table table-dark">
     <thead>
     <tr>
         <th scope="col">ClubName</th>
+        <th scope="col">Description</th>
 
 
     </tr>
@@ -26,6 +28,7 @@ background-color: #343a40">My Clubs</h1>
     <tbody>
     <tr    th:each="club : ${clubs}">
         <td> <a th:href="${club.name}" th:text="${club.name}">hello</a></td>
+        <td th:text="${club.description}">hello</td>
     </tr>
     </tbody>
 </table>

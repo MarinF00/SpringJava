@@ -20,19 +20,16 @@ import java.util.Scanner;
 @Component
 public class BootStrapData implements CommandLineRunner {
 
-    ClubRepository clubRepository;
     PlayerRepository playerRepository;
     PublisherRepository publisherRepository;
     UserRepository userRepository;
 
-   public static List<Player> munPlayers = new ArrayList<>();
-   public static List<Player> arsPlayers = new ArrayList<>();
+
    public static List<Club> clubs = new ArrayList<>();
 
 
 
-    public BootStrapData(ClubRepository clubRepository, PlayerRepository playerRepository, PublisherRepository publisherRepository, UserRepository userRepository) {
-        this.clubRepository = clubRepository;
+    public BootStrapData( PlayerRepository playerRepository, PublisherRepository publisherRepository, UserRepository userRepository) {
         this.playerRepository = playerRepository;
         this.publisherRepository = publisherRepository;
         this.userRepository = userRepository;
@@ -47,8 +44,6 @@ public class BootStrapData implements CommandLineRunner {
 
        Player Denis = new Player("Denis","Bergkamp",10,"Forward");
         Club ars = new Club("Arsenal");
-        ars.addPlayer(Denis,arsPlayers);
-
 
        Player DeGea = new Player("David", "DeGea",1,"Goalkeeper");
         Player Dean = new Player("Dean", "Henderson",26,"Goalkeeper");
@@ -74,35 +69,6 @@ public class BootStrapData implements CommandLineRunner {
         Player Deans = new Player("proba", "greshka",133,"Striker");
         Player Eric = new Player("Eric", "Baily",3,"Defender");
 
-        mun.addPlayer(DeGea,munPlayers);
-        mun.addPlayer(Dean,munPlayers);
-        mun.addPlayer(Victor,munPlayers);
-        mun.addPlayer(Eric,munPlayers);
-        mun.addPlayer(Harry,munPlayers);
-        mun.addPlayer(Luke,munPlayers);
-        mun.addPlayer(WanBissaka,munPlayers);
-        mun.addPlayer(Alex,munPlayers);
-        mun.addPlayer(Axel,munPlayers);
-        mun.addPlayer(Brandon,munPlayers);
-        mun.addPlayer(Bruno,munPlayers);
-        mun.addPlayer(Paul,munPlayers);
-        mun.addPlayer(Juan,munPlayers);
-        mun.addPlayer(Nemanja,munPlayers);
-        mun.addPlayer(Donny,munPlayers);
-        mun.addPlayer(Fred,munPlayers);
-        mun.addPlayer(Scott,munPlayers);
-        mun.addPlayer(Cavani,munPlayers);
-        mun.addPlayer(Martial,munPlayers);
-        mun.addPlayer(Rashford,munPlayers);
-        mun.addPlayer(Mason,munPlayers);
-        mun.addPlayer(Deans,munPlayers);
-
-
-
-        clubs.add(mun);
-        clubs.add(ars);
-        ars.setPlayers(arsPlayers);
-        mun.setPlayers(munPlayers);
 
 
      /*UserDto userDto3 = new UserDto("gggg");

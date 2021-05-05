@@ -32,7 +32,7 @@ public class AddDeleteController {
         Club found = clubRepository.findById(id).orElse(null);
 
 
-        for(int i = 0; i < BootStrapData.munPlayers.size(); i++)
+        for(int i = 0; i < found.getPlayers().size(); i++)
         {
             if(number == found.getPlayers().get(i).getNumber())
             {

@@ -1,7 +1,9 @@
 package com.self.FootballWebSite.controller;
 
+import com.self.FootballWebSite.model.RegisterClubModel;
 import com.self.FootballWebSite.model.RegisterUserModel;
 import com.self.FootballWebSite.service.AuthService;
+import com.self.FootballWebSite.service.RegisterClubServiceModel;
 import com.self.FootballWebSite.service.RegisterUserServiceModel;
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Controller;
@@ -36,5 +38,17 @@ public class AuthController {
         authService.register(serviceModel);
 
         return new ModelAndView("login");
+    }
+    @GetMapping("/register/club")
+    public String getClubRegisterForm()
+    {
+        return "registerClub";
+    }
+    @PostMapping("/register/club")
+    public ModelAndView registerClub(@ModelAttribute RegisterClubModel model){
+        RegisterClubServiceModel serviceModel = modelMapper.map(model,RegisterClubServiceModel.class);
+        authService.clubRegister(serviceModel);
+
+        return new ModelAndView("MyClubs");
     }
 }

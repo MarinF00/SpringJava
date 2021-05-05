@@ -1,18 +1,22 @@
 package com.self.FootballWebSite.model;
 
+import org.hibernate.annotations.Type;
+
 import javax.persistence.*;
 @Entity
-@Table(name = "player")
+@Table(name = "m_players")
 public class Player {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     Long id;
 
+
+
     String firstName;
     String familyName;
-   // int age;
     int number;
     String position;
+    String description;
     @ManyToOne
     Club owner;
 
@@ -24,14 +28,9 @@ public class Player {
     {
         this.firstName = firstName;
         this.familyName = familyName;
-      //  this.age = age;
         this.number = number;
         this.position = position;
     }
-
-   /* public int getAge() {
-        return age;
-    }*/
 
     public int getNumber() {
         return number;
@@ -53,10 +52,6 @@ public class Player {
         this.familyName = familyName;
     }
 
-    /*public void setAge(int age) {
-        this.age = age;
-    }*/
-
     public void setId(Long id) {
         this.id = id;
     }
@@ -72,6 +67,7 @@ public class Player {
     public void setName(String firstName) {
         this.firstName = firstName;
     }
+
     public String getPosition()
     {
         return position;
