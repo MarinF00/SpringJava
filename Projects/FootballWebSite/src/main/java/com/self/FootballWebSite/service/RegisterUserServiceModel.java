@@ -5,7 +5,6 @@ import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import org.springframework.stereotype.Service;
 
 @Service
-
 public class RegisterUserServiceModel {
     private String username;
     private String email;

@@ -30,5 +30,15 @@ public class ClubController {
     return "MyClubs";
     }
 
-
+    @RequestMapping(value = "/addClub",method = RequestMethod.POST)
+    @ResponseBody
+    public String submit(@Valid @ModelAttribute("club") Club club,
+                         BindingResult result, ModelMap model) {
+        if (result.hasErrors()) {
+            return "error";
+        }
+        model.addAttribute("name", club.getName());
+        model.addAttribute("id", club.getId());
+        return "MyClubs";
+    }
 }

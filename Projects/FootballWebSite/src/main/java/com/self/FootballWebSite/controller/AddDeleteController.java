@@ -18,16 +18,17 @@ public class AddDeleteController {
         this.clubRepository = clubRepository;
     }
     @RequestMapping(value = "/add")
-    public void addPlayers(@RequestParam Long id, @RequestParam String firstName, @RequestParam String familyName, @RequestParam int number, @RequestParam String position)
+    public String addPlayers(@RequestParam Long id, @RequestParam String firstName, @RequestParam String familyName, @RequestParam int number, @RequestParam String position)
     {
         Player player = new Player(firstName, familyName, number, position);
         playerRepository.save(player);
         Club found = clubRepository.findById(id).orElse(null);
         found.getPlayers().add(player);
         clubRepository.save(found);
+        return "MyClubs";
     }
     @RequestMapping(value = "/delete")
-    public void deletePlayers(@RequestParam Long id, @RequestParam String firstName, @RequestParam String familyName,@RequestParam int number, @RequestParam String position)
+    public String deletePlayers(@RequestParam Long id, @RequestParam String firstName, @RequestParam String familyName,@RequestParam int number, @RequestParam String position)
     {
         Club found = clubRepository.findById(id).orElse(null);
 
@@ -41,6 +42,6 @@ public class AddDeleteController {
                 clubRepository.save(found);
             }
         }
-
+        return "MyClubs";
     }
 }

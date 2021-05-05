@@ -19,7 +19,10 @@ public class ManchesterUnitedController {
         this.playerRepository = playerRepository;
         this.clubRepository = clubRepository;
     }
-
+    @PostMapping("/employees")
+    Club newClub(@RequestBody Club newClub) {
+        return clubRepository.save(newClub);
+    }
 
     @RequestMapping(value = "/ManchesterUnited")
     public String getPlayers(Model model)
