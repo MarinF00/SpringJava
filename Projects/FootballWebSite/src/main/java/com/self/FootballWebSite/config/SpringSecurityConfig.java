@@ -39,15 +39,14 @@ public class SpringSecurityConfig extends WebSecurityConfigurerAdapter {
                 .authorizeRequests().antMatchers("/console/*").permitAll();
 
 
-                        httpSecurity.authorizeRequests().antMatchers("/ManchesterUnited").permitAll().and()
-                        .authorizeRequests().antMatchers("/Arsenal").permitAll().and()
+                        httpSecurity
                         .authorizeRequests().antMatchers("/MyClubs").permitAll().and()
                         .authorizeRequests().antMatchers("/home").permitAll().and()
                                 .authorizeRequests().antMatchers("/index").permitAll().and()
-                        .authorizeRequests().antMatchers("/registration").permitAll().and()
+                        .authorizeRequests().antMatchers("/register").permitAll().and()
                         .authorizeRequests().antMatchers("/addClub").permitAll().and()
-                        .authorizeRequests().antMatchers("/players/post").permitAll().and()
-                        .authorizeRequests().antMatchers("/clubs/post").permitAll().and()
+                        .authorizeRequests().antMatchers("/register/player").hasAnyRole().and()
+                        .authorizeRequests().antMatchers("/register/club").hasAnyRole().and()
                         .authorizeRequests().antMatchers("/add").hasRole("ADMIN").and()
                         .authorizeRequests().antMatchers("/delete").hasRole("ADMIN");
 
