@@ -2,7 +2,8 @@
 /shelf/
 /workspace.xml
 # Datasource local storage ignored files
-/../../../../../../:\SchoolParent\SpringJava\Projects\MentorMate\.idea/dataSources/
-/dataSources.local.xml
+/../../../../../../:\SchoolParent\SpringJava\Projects\MentorMate\.idea/
+/../../../../../../:\SchoolParent\SpringJava\Projects\MentorMate/out/
+/../../../../../../:\SchoolParent\SpringJava\Projects\MentorMate/MentorMate.iml
 # Editor-based HTTP Client requests
 /httpRequests/
