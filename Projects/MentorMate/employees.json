@@ -1,0 +1,14 @@
+Data:
+{
+ name:'Ivan',
+ totalSales:250,
+ salesPeriod:10,
+ experienceMultiplier:0.5
+}
+Data:
+{
+ name:'Gosho',
+ totalSales:250,
+ salesPeriod:10,
+ experienceMultiplier:0.5
+}

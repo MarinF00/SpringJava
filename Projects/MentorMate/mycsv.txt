@@ -1,0 +1,3 @@
+Name,Score
+Ivan,25.0
+Gosho,12.5
