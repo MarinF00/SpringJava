@@ -1,8 +1,11 @@
 package com.company;
 
+import netscape.javascript.JSObject;
+
 import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
 
 public class MyFile {
 
@@ -90,6 +93,22 @@ public class MyFile {
             }
         }
         return reportList;
+    }
+
+    public void ReadFromFile(String filepath)
+    {
+        try {
+            File myObj = new File(filepath);
+            Scanner myReader = new Scanner(myObj);
+            while (myReader.hasNextLine()) {
+                String data = myReader.nextLine();
+                System.out.println(data);
+            }
+            myReader.close();
+        } catch (FileNotFoundException e) {
+            System.out.println("An error occurred.");
+            e.printStackTrace();
+        }
     }
 }
 
