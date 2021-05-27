@@ -4,24 +4,19 @@ package com.self.FootballWebSite.bootstrap;
 
 import com.self.FootballWebSite.model.Club;
 import com.self.FootballWebSite.model.Player;
-import com.self.FootballWebSite.model.Publisher;
-import com.self.FootballWebSite.model.UserDto;
-import com.self.FootballWebSite.repositories.ClubRepository;
 import com.self.FootballWebSite.repositories.PlayerRepository;
-import com.self.FootballWebSite.repositories.PublisherRepository;
 import com.self.FootballWebSite.repositories.UserRepository;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Scanner;
 
 @Component
 public class BootStrapData implements CommandLineRunner {
 
     PlayerRepository playerRepository;
-    PublisherRepository publisherRepository;
+
     UserRepository userRepository;
 
 
@@ -29,9 +24,9 @@ public class BootStrapData implements CommandLineRunner {
 
 
 
-    public BootStrapData( PlayerRepository playerRepository, PublisherRepository publisherRepository, UserRepository userRepository) {
+    public BootStrapData( PlayerRepository playerRepository, UserRepository userRepository) {
         this.playerRepository = playerRepository;
-        this.publisherRepository = publisherRepository;
+
         this.userRepository = userRepository;
 
     }
@@ -39,7 +34,6 @@ public class BootStrapData implements CommandLineRunner {
     @Override
     public void run(String... args) throws Exception {
 
-      Publisher publisher = new Publisher("Marin", "Filipov","Bulgaria","Varna");
         Club mun = new Club("Manchester United");
 
        Player Denis = new Player("Denis","Bergkamp",10,"Forward");
