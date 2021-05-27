@@ -23,7 +23,11 @@ public class Main {
         Report report = new Report(10,false,10);
         Report report1 = new Report(10,true,10);
 
-    myFile.ReadFromFile(filepath1);
+/*      myEmployees.add(myFile.GenerateReport(report,Ivan));
+        myEmployees.add(myFile.GenerateReport(report1,Gosho));
+
+        myFile.MakeACSVFile(filepath1, myEmployees);*/
+        myFile.ReadFromFile(filepath1);
 
 
     }
