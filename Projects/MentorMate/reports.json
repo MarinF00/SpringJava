@@ -1,11 +1,6 @@
-Report definition: 
+Report definition:
 {
- topPerformanceTreshold:10,
- useExperienceMultiplier:false,
- periodLimit:10
-}Report definition: 
-{
- topPerformanceTreshold:15,
- useExperienceMultiplier:true,
- periodLimit:15
+"topPerformersThreshold": 10,
+"useExprienceMultiplier": false,
+"periodLimit": 10
 }

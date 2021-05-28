@@ -3,9 +3,7 @@ package com.company;
 import netscape.javascript.JSObject;
 
 import java.io.*;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Scanner;
+import java.util.*;
 
 public class MyFile {
 
@@ -98,8 +96,8 @@ public class MyFile {
     public void ReadFromFile(String filepath)
     {
         try {
-            File myObj = new File(filepath);
-            Scanner myReader = new Scanner(myObj);
+            File file = new File(filepath);
+            Scanner myReader = new Scanner(file);
             while (myReader.hasNextLine()) {
                 String data = myReader.nextLine();
                 System.out.println(data);
@@ -109,6 +107,31 @@ public class MyFile {
             System.out.println("An error occurred.");
             e.printStackTrace();
         }
+    }
+
+    public void CreateEmployeeFromFile(String filepath) throws FileNotFoundException {
+
+
+        File file = new File(filepath);
+        Scanner input = new Scanner(file);
+
+
+        /* skip the header */
+        input.nextLine();
+
+
+        while(input.hasNextLine()) {
+            String name = input.next();
+            int totalSale = input.nextInt();
+            int salesPeriod = input.nextInt();
+            double experienceMultiplier = Double.parseDouble(input.next().substring(1));
+
+
+            Employee employee = new Employee(name, totalSale, salesPeriod, experienceMultiplier);
+            System.out.println(employee);
+
+        }
+
     }
 }
 
