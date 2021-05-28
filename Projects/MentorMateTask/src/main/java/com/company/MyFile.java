@@ -12,7 +12,7 @@ public class MyFile {
 
     List<List<String>> myEmployees = new ArrayList<>();
 
-    public Object readJsonSimpleDemo(String filename) throws Exception {
+    public Object readJsonFile(String filename) throws Exception {
 
         FileReader reader = new FileReader(filename);
         JSONParser jsonParser = new JSONParser();
@@ -20,7 +20,7 @@ public class MyFile {
     }
 
     public void createEmployeeFromFile() throws Exception {
-        JSONArray jsonArray = (JSONArray) readJsonSimpleDemo("employees.json");
+        JSONArray jsonArray = (JSONArray) readJsonFile("employees.json");
         for (int i = 0; i < jsonArray.size(); i++) {
             JSONObject jsonObject = (JSONObject) jsonArray.get(i);
             String name = (String) jsonObject.get("name");
@@ -37,7 +37,7 @@ public class MyFile {
     public Report createReportFromFile() throws Exception {
 
 
-        JSONObject jsonObject = (JSONObject) readJsonSimpleDemo("reports.json");
+        JSONObject jsonObject = (JSONObject) readJsonFile("reports.json");
         Report report = new Report(
                 (Long) jsonObject.get("topPerformersThreshold"),
                 (Boolean) jsonObject.get("useExprienceMultiplier"),
@@ -46,6 +46,7 @@ public class MyFile {
         System.out.println(report);
         return report;
         }
+
 
     public void MakeACSVFile(String filepath) throws IOException {
         File file = new File(filepath);
@@ -73,7 +74,7 @@ public class MyFile {
         double result = 0;
         List<String> reportList = new ArrayList<>();
         if(employee.salesPeriod <= report.periodLimit) {
-            if (!report.useExperienceMultiplier) {
+            if (report.useExperienceMultiplier) {
                 reportList.add(employee.getName());
                 result = ((employee.totalSales / employee.salesPeriod) * employee.experienceMultiplier);
                 if(result >= report.topPerformanceTreshold) {
