@@ -19,8 +19,8 @@ public class ReportGenerator {
         return jsonParser.parse(reader);
     }
 
-    public void createEmployeeFromFile() throws Exception {
-        JSONArray jsonArray = (JSONArray) readJsonFile("employees.json");
+    public void createEmployeeFromFile(String filepath) throws Exception {
+        JSONArray jsonArray = (JSONArray) readJsonFile(filepath);
         try{
         for (int i = 0; i < jsonArray.size(); i++) {
             JSONObject jsonObject = (JSONObject) jsonArray.get(i);
