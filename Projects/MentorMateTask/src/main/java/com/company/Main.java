@@ -4,7 +4,7 @@ public class Main {
 
     public static void main(String[] args) throws Exception {
 
-    MyFile myFile = new MyFile();
+    ReportGenerator myFile = new ReportGenerator();
 
    myFile.createEmployeeFromFile();
 
